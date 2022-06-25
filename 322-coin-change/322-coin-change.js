@@ -31,6 +31,6 @@ var coinChange = function(coins, amount) {
             result[i] = min_coin;
         }
     }
-
+    // console.log(result);
     return amount == 0 ? 0 : result[amount];
 };
