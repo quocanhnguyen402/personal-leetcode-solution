@@ -9,13 +9,12 @@
 
     for (let i = 0; i < nums.length; i++) {
         const value = nums[i];
-
         var tmp_max = max;
 
         max = Math.max(value*tmp_max,value*min,value);
         min = Math.min(value*tmp_max,value*min,value);
 
-        console.log(max + " " + min);
+        // console.log(max + " " + min);
 
         max_product = Math.max(max,max_product);
     }
