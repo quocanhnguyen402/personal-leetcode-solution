@@ -5,18 +5,18 @@
  */
 var combinationSum = function (candidates, target) {
     var result = [];
-    helper(candidates, target, 0, [], 0, result);
+    helper(candidates, 0, [], target, result);
     return result;
 };
 
-function helper(candidates, target, index, answer, current_target, result) {
+function helper(candidates, index, answer, current_target, result) {
 
-    if (current_target == target) {
+    if (current_target == 0) {
         result.push(answer.slice());
         return;
     }
 
-    if (current_target > target) {
+    if (current_target < 0) {
         return;
     }
 
@@ -28,10 +28,10 @@ function helper(candidates, target, index, answer, current_target, result) {
 
     // Dont add the current value
     var _answer_no = answer.slice();
-    helper(candidates, target, index + 1, _answer_no, current_target, result);
+    helper(candidates, index + 1, _answer_no, current_target, result);
 
     // Add the current value
     var _answer = answer.slice();
     _answer.push(current_value);
-    helper(candidates, target, index, _answer, current_target + current_value, result);
+    helper(candidates, index, _answer, current_target - current_value, result);
 }
