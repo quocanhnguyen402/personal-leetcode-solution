@@ -16,22 +16,15 @@ function helper(candidates, index, answer, current_target, result) {
         return;
     }
 
-    if (current_target < 0) {
+    if (current_target < 0 || index == candidates.length) {
         return;
     }
-
-    if (index == candidates.length) {
-        return;
-    }
-
-    var current_value = candidates[index];
-
+    
     // Dont add the current value
-    var _answer_no = answer.slice();
-    helper(candidates, index + 1, _answer_no, current_target, result);
+    var _answer = answer.slice();
+    helper(candidates, index + 1, _answer, current_target, result);
 
     // Add the current value
-    var _answer = answer.slice();
-    _answer.push(current_value);
-    helper(candidates, index, _answer, current_target - current_value, result);
+    _answer.push(candidates[index]);
+    helper(candidates, index, _answer, current_target - candidates[index], result);
 }
