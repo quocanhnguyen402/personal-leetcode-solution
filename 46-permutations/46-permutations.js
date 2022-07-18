@@ -4,17 +4,13 @@
  */
 var permute = function (nums) {
     var result = [];
-    helper(nums, new Set(), 0 ,result);
+    helper(nums, new Set() ,result);
     return result;
 };
 
-function helper(nums, permute, pos,result) {
-    if (pos >= nums.length) {
+function helper(nums, permute,result) {
+    if (permute.size == nums.length) {
         result.push(Array.from(permute));
-        return;
-    }
-
-    if(permute.size >= pos + 1 ){
         return;
     }
 
@@ -25,7 +21,7 @@ function helper(nums, permute, pos,result) {
             continue
         }
         clone.add(element);
-        helper(nums, clone, pos + 1,result);
+        helper(nums, clone,result);
         clone.delete(element);
     }
 
