@@ -5,23 +5,20 @@
 var letterCombinations = function (digits) {
 
     if(digits == ""){
-        return []
+        return [];
     }
 
     var result = [];
 
-    function helper(i, current_string, phones) {
+    function helper(i, current_string) {
         if (i >= digits.length) {
             result.push(current_string)
             return;
         }
 
-        var str = phones[digits[i]];
-
-        for (let j = 0; j < str.length; j++) {
-            const char = str[j];
-            current_string += char;
-            helper(i + 1, current_string, phones);
+        for (let j = 0; j < phones[digits[i]].length; j++) {
+            current_string += phones[digits[i]][j];
+            helper(i + 1, current_string);
             current_string = current_string.slice(0, -1);
         }
     }
