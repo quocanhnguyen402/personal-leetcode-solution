@@ -8,8 +8,9 @@ var checkInclusion = function(s1, s2) {
     var s2_map = initS2map(s2.slice(0,s1.length),createAlphabetMap());
     var matches = getMatchesValue(s1_map,s2_map);
     if(matches == s1_map.size){
-            return true;
-        }
+        return true;
+    }
+    
     for (let j = s1.length; j < s2.length; j++) {
         var char_lost = s2[j-s1.length];
         var char_add = s2[j];
@@ -46,8 +47,8 @@ function createAlphabetMap(){
 
 function getMatchesValue(s1_map,s2_map){
     var matches = 0;
-    for (const [key, value] of s2_map) {
-        if(s1_map.has(key) && value == s1_map.get(key)){
+    for (const [key, value] of s1_map) {
+        if(value == s2_map.get(key)){
             matches++
         }
     }
