@@ -9,6 +9,8 @@ class Solution:
             digits[length-1] = 0
 
         for i in range(length-2,-1,-1):
+            if plus_one == False:
+                return digits
             if plus_one:
                 digits[i] += 1
             plus_one = False
