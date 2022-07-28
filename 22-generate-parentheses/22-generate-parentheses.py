@@ -1,8 +1,7 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        open_count,close_count = n,n
         result = []
-        self.generate(result,open_count,close_count,"")
+        self.generate(result,n,n,"")
         return result
 
     def generate(self,result:List[str],open_count,close_count,current_str):
