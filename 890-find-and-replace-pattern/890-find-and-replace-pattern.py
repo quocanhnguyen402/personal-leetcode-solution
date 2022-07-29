@@ -15,10 +15,6 @@ class Solution(object):
         if len(word) != len(pattern):
             return False
         for i in range(0,len(word)):
-            word_char = word[i]
-            pattern_char = pattern[i]
-            index_word = word.index(word_char)
-            index_pattern = pattern.index(pattern_char)
-            if index_word != index_pattern:
+            if word.index(word[i]) != pattern.index(pattern[i]):
                 return False
         return True
