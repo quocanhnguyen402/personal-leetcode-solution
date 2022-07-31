@@ -5,7 +5,7 @@ class Solution:
         for i in range(1,len(nums)):
             if nums[i] > nums[i-1]:
                 plus = minus+1
-            elif nums[i] < nums[i-1]:
+            if nums[i] < nums[i-1]:
                 minus = plus+1
         
         return max(plus,minus)
