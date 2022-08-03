@@ -17,7 +17,6 @@ class Solution:
             pointer_left = pointer_left.next
 
         pointer_left.next = pointer_left.next.next
-        self._print_list(dummy.next)
         return dummy.next
 
     def _print_list(self, head: Optional[ListNode]):
