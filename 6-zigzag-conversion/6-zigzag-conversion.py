@@ -13,10 +13,11 @@ class Solution:
             # @2 @4       2
             # @3          0
             result[0] += s[index]
+            distance = block_length-2
             row = 1
             while block_length - 2*row >= 0:
                 first_index = index + row
-                second_index = index + row + block_length - 2*row
+                second_index = index + row + distance
 
                 if first_index != second_index:
                     if first_index < len(s):
@@ -26,6 +27,8 @@ class Solution:
                 else:
                     if first_index < len(s):
                         result[row] += s[first_index]
+
+                distance = distance - 2
                 row += 1
             index += block_length
             
