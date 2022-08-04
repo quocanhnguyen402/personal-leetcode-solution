@@ -2,19 +2,35 @@ class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if numRows == 1:
             return s
-        distance = numRows + numRows-2
+        block_length = 2*numRows-2
         result = [""]*numRows
         index = 0
         while index < len(s):
+            # A block of zig zag numRows = 4 block_length = 6
+            #           distance to the same row
+            # @0     @6   6 but index 6 is not in the block  
+            # @1   @5     4
+            # @2 @4       2
+            # @3          0
             result[0] += s[index]
-            if index + numRows - 1 < len(s):
-                result[numRows-1] += s[index+numRows-1]
-            for i in range(1,numRows-1):
-                if index + i < len(s):
-                    result[i] += s[index+i]
-                    if index + i + (distance-2*i) < len(s):
-                        result[i] += s[index + i + (distance-2*i)]
-            index += distance
+            distance = block_length-2
+            row = 1
+            while distance >= 0:
+                first_index = index + row
+                second_index = index + row + distance
+
+                if first_index != second_index:
+                    if first_index < len(s):
+                        result[row] += s[first_index] 
+                    if second_index < len(s):
+                        result[row] += s[second_index] 
+                else:
+                    if first_index < len(s):
+                        result[row] += s[first_index]
+
+                distance = distance - 2
+                row += 1
+            index += block_length
             
         return "".join(result)
         
