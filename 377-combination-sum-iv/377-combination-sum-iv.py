@@ -4,5 +4,6 @@ class Solution:
         for total in range(1, target + 1):
             memory[total] = 0
             for n in nums:
-                memory[total] += memory.get(total - n,0)
+                if total - n >= 0:
+                    memory[total] += memory.get(total - n,0)
         return memory[target]
