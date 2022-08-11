@@ -14,6 +14,5 @@ class Solution:
         
         if root.val <= min_val or root.val >= max_val:
             return False
-        result_right = self.isValidHelper(root.right,root.val,max_val)
-        result_left = self.isValidHelper(root.left,min_val,root.val)
-        return result_right and result_left
+
+        return self.isValidHelper(root.right,root.val,max_val) and self.isValidHelper(root.left,min_val,root.val)
