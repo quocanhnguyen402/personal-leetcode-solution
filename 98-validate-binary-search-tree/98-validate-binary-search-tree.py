@@ -12,10 +12,6 @@ class Solution:
         if root is None:
             return True
         
-        print(root.val)
-        print(min_val)
-        print(max_val)
-        
         if root.val <= min_val or root.val >= max_val:
             return False
         result_right = self.isValidHelper(root.right,root.val,max_val)
