@@ -7,8 +7,7 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        a, b = sorted([p.val, q.val])
-        return self.findAnswer(root,b,a)
+        return self.findAnswer(root,max(q.val,p.val),min(q.val,p.val))
         
     def findAnswer(self,root,big_val,min_val):
         if root.val < min_val:
