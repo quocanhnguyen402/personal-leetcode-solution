@@ -1,17 +1,20 @@
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
-        m, n = len(mat), len(mat[0])
-        def sort(i, j):
-            vals = []
-            while i < m and j < n:
-                vals.append(mat[i][j])
-                i += 1
-                j += 1
-            vals.sort()
-            while i and j:
-                j -= 1
-                i -= 1
-                mat[i][j] = vals.pop()
-        for i in range(m): sort(i, 0)
-        for j in range(n): sort(0, j)
+        mat_row = len(mat)
+        mat_col = len(mat[0])
+
+        def sortDiagonal(start_row,start_col):
+            values = []
+            while start_col < mat_col and start_row < mat_row:
+                values.append(mat[start_row][start_col])
+                start_col += 1
+                start_row += 1
+            values.sort()
+            while start_col and start_row:
+                start_col -= 1
+                start_row -= 1
+                mat[start_row][start_col] = values.pop()
+
+        for row in range(mat_row): sortDiagonal(row,0)
+        for col in range(mat_col): sortDiagonal(0,col)            
         return mat
