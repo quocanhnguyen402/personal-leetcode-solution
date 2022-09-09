@@ -10,12 +10,10 @@ class Solution:
         max_def = -1
         result = 0
         for attack in set_prop:
-            defends = set_prop[attack]
             max_def_temp = max_def
-            for defend in defends:
+            for defend in set_prop[attack]:
                 if defend < max_def:
                     result += 1
                 max_def_temp = max(max_def_temp,defend)
             max_def = max_def_temp
         return result
-        
