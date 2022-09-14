@@ -24,9 +24,8 @@ class Solution:
             odd_count = 0
             for i in range(len(count)):
                 if count[i] % 2 != 0:
-                    if odd_count == 0:
-                        odd_count = 1
-                    else:
+                    odd_count += 1
+                    if odd_count > 1:
                         return False
             return True
         dfs(root,count)
