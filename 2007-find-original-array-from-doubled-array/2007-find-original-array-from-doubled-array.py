@@ -16,11 +16,9 @@ class Solution:
         for i in range(len(changed)):
             val = changed[i]
             if map[val] != 0:
+                map[val] -= 1
                 if val * 2 in map and map[val * 2] > 0:
-                    map[val] -= 1
                     map[val*2] -= 1
                     result.append(val)
-        for i in map:
-            if map[i] > 0:
-                return []
+
         return result if len(result) == half else []
