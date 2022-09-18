@@ -8,8 +8,8 @@ class Solution:
             half = (len1 + len2)//2
             left = 0
             right = len1 - 1
-            mid1 = (left + right) // 2
             while True:
+                mid1 = (left + right) // 2
                 index2 = half-mid1-2
                 left1 = nums1[mid1] if mid1 >= 0 else float("-infinity")
                 right1 = nums1[mid1 + 1] if mid1 + 1 < len1 else float("infinity")
@@ -24,6 +24,6 @@ class Solution:
                         # even
                         return (max(left1, left2) + min(right1, right2)) / 2
                 if left1 > right2:
-                    mid1 = mid1 - 1
+                    right = mid1 - 1
                 if left2 > right1:
-                    mid1 = mid1 + 1
+                    left = mid1 + 1
