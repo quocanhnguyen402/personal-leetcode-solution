@@ -18,6 +18,5 @@ class Solution:
             nums[i] = left[i-1] * right[i+1]
         nums[0] = right[1]
         nums[-1] = left[-2]
-        print(left)
-        print(right)
+
         return nums
