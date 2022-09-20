@@ -17,6 +17,4 @@ class Solution(object):
             for j in range(1,len2+1):
                 if nums1[i-1] == nums2[j-1]:
                     trace[i][j] = trace[i-1][j-1] + 1
-                else:
-                    trace[i][j] = 0
         return max(max(row) for row in trace)
