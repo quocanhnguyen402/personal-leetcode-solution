@@ -15,5 +15,4 @@ class Solution:
                 # Two step jump
                 if 10 <= int(s[i-2]) * 10 + int(s[i-1]) <= 26:
                     trace[i] += trace[i-2]
-            print(trace)
             return trace[-1]
