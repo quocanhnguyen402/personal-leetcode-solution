@@ -16,14 +16,14 @@ class Solution:
             1000 : "M"
         }
 
-        nums = [1,4,5,9,10,40,50,90,100,400,500,900,1000]
+        keys = list(roman.keys())
         
         res = ""
-        a = len(nums) - 1
+        i = len(keys) - 1
         
         while num != 0:
-            while nums[a] > num:
-                a -= 1
-            num -= nums[a]
-            res += roman[nums[a]]
+            while keys[i] > num:
+                i -= 1
+            num -= keys[i]
+            res += roman[keys[i]]
         return res    
