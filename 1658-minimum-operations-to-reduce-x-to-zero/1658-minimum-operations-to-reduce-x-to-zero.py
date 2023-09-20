@@ -7,15 +7,11 @@ class Solution:
         n = len(nums)
 
         target = sum(nums) - x
-        if target < 0:
-            return -1
-        if target == 0:
-            return n
 
         for right in range(0, n):
             cur_sum += nums[right]
 
-            while left < right and cur_sum > target:
+            while left <= right and cur_sum > target:
                 cur_sum -= nums[left]
                 left += 1
 
