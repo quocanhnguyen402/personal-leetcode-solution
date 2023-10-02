@@ -3,7 +3,7 @@ class Solution:
         moved = [0,0]
         for i in range(1,len(colors)-1):
             char = colors[i]
-            if char == colors[i-1] and char == colors[i+1]:
+            if char == colors[i-1] == colors[i+1]:
                 if char == 'A':
                     moved[0] += 1
                 else:
