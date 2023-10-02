@@ -9,14 +9,4 @@ class Solution:
                 else:
                     moved[1] += 1
         
-        alice_turn = True
-        while True:
-            if alice_turn:
-                moved[0] -= 1
-                if moved[0] < 0:
-                    return False
-            else:
-                moved[1] -= 1
-                if moved[1] < 0:
-                    return True
-            alice_turn = not alice_turn
+        return moved[0] - moved[1] > 0
