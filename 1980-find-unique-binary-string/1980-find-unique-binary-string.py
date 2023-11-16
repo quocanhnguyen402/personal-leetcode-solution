@@ -13,5 +13,7 @@ class Solution:
                 if (a):
                     return a
                 return findBinary(string + "1", n)
+                if (b):
+                    return b
 
         return findBinary("", len(nums))
